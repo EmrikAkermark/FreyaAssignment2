@@ -9,28 +9,35 @@ public class LaserReflections : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		RaycastHit hitThing;
-		if (Physics.Raycast(transform.position, transform.forward, out hitThing, 1000f))
+
+		if (Physics.Raycast(transform.position, transform.forward, 1000f))
 		{
-			Gizmos.color = Color.red;
-			Gizmos.DrawLine(transform.position, hitThing.point);
+			DrawLaser(transform.position, transform.forward, 0);
 		}
 		else
 		{
 			DrawMiss();
 		}
-		void DrawMiss()
-		{
-				Gizmos.color = Color.green;
-				Gizmos.DrawLine(transform.position, transform.position + (transform.forward * 10));
-		}
+		
 	}
 
+	void DrawMiss()
+	{
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(transform.position, transform.position + (transform.forward * 10));
+	}
 	void DrawLaser(Vector3 position, Vector3 rotation, int bounces)
 	{
 		if(bounces >= MaxBounces)
 		{
 			return;
 		}
+		RaycastHit hitThing;
+		Physics.Raycast(position, rotation, out hitThing, 1000f);
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(position, hitThing.point);
+
+
+
 	}
 }
