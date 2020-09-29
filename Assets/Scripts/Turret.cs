@@ -27,6 +27,8 @@ public class Turret : MonoBehaviour
         Vector3 turretRight = Vector3.Cross(turretUp, turretForward);
         DrawPrep(origin, hitPoint, turretRight, turretUp, turretForward);
 
+        Matrix4x4 turretArea = new Matrix4x4(turretRight, turretUp, turretForward, hitPoint);
+
         Vector3[] corners = new Vector3[]
         {
  	    // bottom 4 positions:
@@ -41,11 +43,19 @@ public class Turret : MonoBehaviour
         new Vector3( 1, 2, -1 )
         };
 
-        for (int i = 0; i < corners.Length; i++)
-        {
-            Gizmos.DrawSphere(corners[i], 0.1f);
-        }
+        DrawBox(turretArea, corners);
+        DrawTurret(turretArea, new Vector3(1.5f, 1f, 0f));
+        DrawTurret(turretArea, new Vector3(-1.5f, 1f, 0f));
+
     }
+
+    private void DrawTurret(Matrix4x4 turretArea, Vector3 localPosition)
+    {
+        Gizmos.color = Color.gray;
+        Gizmos.DrawLine(turretArea.MultiplyPoint3x4(localPosition), turretArea.MultiplyPoint3x4(localPosition + Vector3.forward * 1.4f));
+    }
+
+
 
     private void DrawPrep(Vector3 origin, Vector3 RayHitPosition, Vector3 turretRight, Vector3 TurretUp, Vector3 TurretForward)
     {
@@ -57,7 +67,15 @@ public class Turret : MonoBehaviour
         Gizmos.DrawLine(RayHitPosition, RayHitPosition + TurretUp);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(RayHitPosition, RayHitPosition + turretRight);
+    }
 
+    private void DrawBox(Matrix4x4 turretPlacement, Vector3[] corners)
+    {
+        for (int i = 0; i < corners.Length; i++)
+        {
+            Gizmos.DrawSphere(turretPlacement.MultiplyPoint3x4(corners[i]), 0.1f);
+
+        }
     }
 
     void DrawMiss(Vector3 startPosition, Vector3 Angle)
