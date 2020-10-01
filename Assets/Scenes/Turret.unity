@@ -160,7 +160,9 @@ MonoBehaviour:
   BarrelHeight: 1.26
   BarrelLength: 1.52
   SpinSpeed: 10
+  Targets: []
   Barrels: 4
+  MaxRange: 0
 --- !u!135 &535485331
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -230,13 +232,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535485329}
-  m_LocalRotation: {x: -0.109053716, y: -0.2312155, z: 0.76310825, w: -0.59355927}
+  m_LocalRotation: {x: -0.81066704, y: -0.47444063, z: -0.045184214, w: -0.3401227}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 28.839, y: 727.085, z: 977.577}
+  m_LocalEulerAnglesHint: {x: 30.569, y: 872.618, z: 1191.706}
 --- !u!1 &1630326219
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,13 +327,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630326219}
-  m_LocalRotation: {x: 0, y: 0.11404423, z: 0, w: 0.9934757}
+  m_LocalRotation: {x: -0.11445362, y: 0.06888795, z: 0.3642944, w: 0.9216531}
   m_LocalPosition: {x: 0, y: -2.58, z: 0}
   m_LocalScale: {x: 15.959, y: 1, z: 15.865}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 13.097, z: 0}
+  m_LocalEulerAnglesHint: {x: -15.139, y: 2.588, z: 42.79}
 --- !u!1 &1765257123
 GameObject:
   m_ObjectHideFlags: 0

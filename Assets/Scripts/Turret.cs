@@ -9,10 +9,17 @@ public class Turret : MonoBehaviour
     public float BarrelHeight = 1.5f;
     public float BarrelLength = 1f;
     public float SpinSpeed;
+    public Transform[] Targets;
+
     private float speen;
+    private bool canAim;
 
     [Range(1, 10)]
     public int Barrels;
+
+
+    public float MaxRange;
+    private Vector3 targetPosition;
 
     private void OnDrawGizmos()
     {
@@ -27,8 +34,10 @@ public class Turret : MonoBehaviour
             DrawMiss(origin, angle);
             return;
         }
+
         Vector3 turretUp = hitThing.normal;
         Vector3 hitPoint = hitThing.point;
+        canAim = CheckTargets(hitPoint);
         //I can feel my brain growing
         Vector3 thatWeirdDotAngle = Vector3.Dot(turretUp, angle) * turretUp;
         Vector3 turretForward = Vector3.Normalize(angle - thatWeirdDotAngle);
@@ -100,6 +109,28 @@ public class Turret : MonoBehaviour
             Gizmos.DrawWireSphere(barrelPosition + barrelForward * BarrelLength, 0.03f);
         }
 
+    }
+
+    bool CheckTargets(Vector3 OwnPosition)
+    {
+        float longestRange = MaxRange;
+        for (int i = 0; i < Targets.Length; i++)
+        {
+            float targetDistance = Vector3.Distance(Targets[i].position, OwnPosition);
+            if (targetDistance < longestRange)
+            {
+                targetPosition = Targets[i].position;
+            }
+        }
+        if(longestRange == MaxRange)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+
+        }
     }
 
     private void DrawBox(Matrix4x4 turretPlacement, Vector3[] corners)
