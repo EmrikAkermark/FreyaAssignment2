@@ -85,6 +85,8 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(turretArea.MultiplyPoint3x4(localPosition), 0.15f);
+        Vector3 barrelForward = turretArea.MultiplyVector(Vector3.forward);
+
 
         float angle = Mathf.PI * 2 / Barrels;
         for (int i = 0; i < Barrels; i++)
@@ -93,9 +95,9 @@ public class Turret : MonoBehaviour
             Vector3 cornerPosition = new Vector3(Mathf.Sin(angle * i + speen) * BarrelRadius * 0.1f, Mathf.Cos(angle * i + speen) * BarrelRadius * 0.1f);
             Vector3 barrelPosition = localPosition + cornerPosition;
             barrelPosition = turretArea.MultiplyPoint3x4(barrelPosition);
-            Gizmos.DrawLine(barrelPosition, barrelPosition + Vector3.forward * BarrelLength);
+            Gizmos.DrawLine(barrelPosition, barrelPosition + barrelForward * BarrelLength);
             Gizmos.DrawWireSphere(barrelPosition, 0.03f);
-            Gizmos.DrawWireSphere(barrelPosition + Vector3.forward * BarrelLength, 0.03f);
+            Gizmos.DrawWireSphere(barrelPosition + barrelForward * BarrelLength, 0.03f);
         }
 
     }
