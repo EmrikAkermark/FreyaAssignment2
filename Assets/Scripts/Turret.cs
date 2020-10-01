@@ -62,7 +62,7 @@ public class Turret : MonoBehaviour
             DrawMultiBarrel(turretArea, new Vector3(BarrelDistance / 2, BarrelHeight, 0f));
             DrawMultiBarrel(turretArea, new Vector3(BarrelDistance / -2, BarrelHeight, 0f));
         }
-        speen += Time.deltaTime * SpinSpeed;
+        speen += Time.fixedDeltaTime * SpinSpeed;
         if (speen > 2 * Mathf.PI)
         {
             speen %= (Mathf.PI * 2);

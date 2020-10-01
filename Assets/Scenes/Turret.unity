@@ -159,8 +159,8 @@ MonoBehaviour:
   BarrelRadius: 1.04
   BarrelHeight: 1.26
   BarrelLength: 1.52
-  SpinSpeed: 1
-  Barrels: 2
+  SpinSpeed: 10
+  Barrels: 4
 --- !u!135 &535485331
 SphereCollider:
   m_ObjectHideFlags: 0
