@@ -155,10 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182cb7505546b4c4ebbf70d3ddee4900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurretRight: {x: 0.5947639, y: 0.14562249, z: 0.7906014}
-  TurretUp: {x: -0.47061542, y: 0.8603933, z: 0.1955631}
-  TurretForward: {x: -0.6517497, y: -0.48838246, z: 0.5802629}
-  TurretRightMagnitude: 1.0000002
+  BarrelDistance: 1.2
+  BarrelRadius: 1.04
+  BarrelHeight: 1.26
+  BarrelLength: 1.52
+  SpinSpeed: 1
+  Barrels: 2
 --- !u!135 &535485331
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -228,13 +230,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535485329}
-  m_LocalRotation: {x: -0.4044541, y: -0.44882756, z: 0.6562345, w: -0.45202547}
+  m_LocalRotation: {x: -0.109053716, y: -0.2312155, z: 0.76310825, w: -0.59355927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 72.692, y: 695.141, z: 950.696}
+  m_LocalEulerAnglesHint: {x: 28.839, y: 727.085, z: 977.577}
 --- !u!1 &1630326219
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,13 +325,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630326219}
-  m_LocalRotation: {x: 0.07621924, y: 0.09742891, z: 0.25297055, w: 0.95953333}
+  m_LocalRotation: {x: 0, y: 0.11404423, z: 0, w: 0.9934757}
   m_LocalPosition: {x: 0, y: -2.58, z: 0}
   m_LocalScale: {x: 15.959, y: 1, z: 15.865}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 5.565, y: 13.097, z: 30.178}
+  m_LocalEulerAnglesHint: {x: 0, y: 13.097, z: 0}
 --- !u!1 &1765257123
 GameObject:
   m_ObjectHideFlags: 0
