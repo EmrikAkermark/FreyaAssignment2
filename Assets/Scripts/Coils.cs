@@ -13,8 +13,16 @@ public class Coils : MonoBehaviour
     [Min(2)]
     public int Corners;
 
+    private float time;
+
     private void OnDrawGizmos()
     {
+        //if(time > 2 * Mathf.PI)
+        //{
+        //    time %= 2 * Mathf.PI;
+        //}
+        //time += Time.deltaTime * 0.4f;
+
         int totalCorners = Corners * Rotations;
         float angle = Mathf.PI * 2 / totalCorners;
         Vector3[] TorusPositions = new Vector3[totalCorners];
@@ -23,7 +31,7 @@ public class Coils : MonoBehaviour
         for (int i = 0; i < totalCorners; i++)
         {
 
-            Vector3 circlePosition = new Vector3(Mathf.Sin(angle * i) * CircleRadius, 0, Mathf.Cos(angle * i) * CircleRadius);
+            Vector3 circlePosition = new Vector3(Mathf.Sin(angle * i ) * CircleRadius, 0, Mathf.Cos(angle * i) * CircleRadius);
             CirclePositions[i] = circlePosition;
             CircleRights[i] = circlePosition.normalized;
             TorusPositions[i] = (CircleRights[i] * Mathf.Cos(angle * i * Rotations) + Vector3.up * Mathf.Sin(angle * i * Rotations)) * SpiralRadius;
@@ -39,9 +47,9 @@ public class Coils : MonoBehaviour
         {
             lerpValue = (float)i / totalCorners;
             Gizmos.color = Color.Lerp(Color.cyan, Color.magenta, lerpValue);
-            Gizmos.DrawWireSphere(CirclePositions[i], 0.3f);
+            Gizmos.DrawWireSphere(CirclePositions[i], 0.1f);
             Vector3 rightAngle = CircleRights[i];
-            Gizmos.DrawLine(CirclePositions[i], CirclePositions[i] + rightAngle);
+            Gizmos.DrawLine(CirclePositions[i], CirclePositions[i] + rightAngle * 0.4f);
 
 
         }
@@ -51,7 +59,6 @@ public class Coils : MonoBehaviour
             lerpValue = (float)i / totalCorners;
             Gizmos.color = Color.Lerp(Color.green, Color.blue, lerpValue);
             Gizmos.DrawWireSphere(CirclePositions[i] + TorusPositions[i], 0.2f);
-            //Gizmos.DrawWireSphere(CornerPositions[i] + Vector3.forward * i + Vector3.forward * 10, 0.5f);
         }
 
         for (int i = 0; i < totalCorners; i++)
@@ -63,8 +70,6 @@ public class Coils : MonoBehaviour
             Gizmos.DrawLine(TorusPositions[start], TorusPositions[next]);
             Gizmos.color = Color.Lerp(Color.blue, Color.green, lerpValue);
             Gizmos.DrawLine(CirclePositions[start] + TorusPositions[start], CirclePositions[next] + TorusPositions[next]);
-
-
         }
     }
 }
