@@ -242,8 +242,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328520953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.32, z: 35.41}
-  m_LocalScale: {x: 20.755018, y: 0.9999996, z: 96.03962}
+  m_LocalPosition: {x: 15.84, y: -5.32, z: 35.41}
+  m_LocalScale: {x: 52.441387, y: 0.9999996, z: 96.03962}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -362,9 +362,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: 4
   Height: 1
-  CircleRadius: 6.39
-  SpiralRadius: 1.84
-  Corners: 26
+  CircleRadius: 6.4
+  SpiralRadius: 0.47
+  Corners: 30
+  isTromb: 0
 --- !u!4 &1782773120
 Transform:
   m_ObjectHideFlags: 0
